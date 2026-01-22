@@ -1,134 +1,348 @@
-<!DOCTYPE html><html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>GAMER STORE [SAB] 🇧🇷</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
-:root{--green:#00ff88;--purple:#7a3cff;--orange:#ff8c1a}
+:root{
+  --green:#00ff88;
+  --purple:#7a3cff;
+  --orange:#ff8c1a;
+}
+
 *{box-sizing:border-box}
-body{margin:0;font-family:Poppins,system-ui;background:radial-gradient(circle at top,#121a24,#06080c);color:#fff;overflow-x:hidden}
-header{position:fixed;top:0;width:100%;z-index:10;background:rgba(10,15,25,.7);backdrop-filter:blur(12px);display:flex;justify-content:space-between;align-items:center;padding:14px 28px}
-header h1{font-family:Orbitron;color:var(--green);text-shadow:0 0 12px var(--green)}
-nav a{margin:0 12px;color:#fff;text-decoration:none;position:relative}
-nav a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;background:linear-gradient(90deg,var(--green),var(--purple));transition:.3s}
+
+body{
+  margin:0;
+  font-family:Poppins,system-ui;
+  background:radial-gradient(circle at top,#121a24,#06080c);
+  color:#fff;
+  overflow-x:hidden;
+}
+
+#particles{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+}
+
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:10;
+  background:rgba(10,15,25,.7);
+  backdrop-filter:blur(12px);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 22px;
+}
+
+header h1{
+  font-family:Orbitron;
+  color:var(--green);
+  text-shadow:0 0 12px var(--green);
+  font-size:1.2rem;
+}
+
+nav a{
+  margin:0 10px;
+  color:#fff;
+  text-decoration:none;
+  position:relative;
+  font-size:.95rem;
+}
+
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-4px;
+  width:0;
+  height:2px;
+  background:linear-gradient(90deg,var(--green),var(--purple));
+  transition:.3s;
+}
+
 nav a:hover::after{width:100%}
-section{padding:120px 8vw}
+
+section{padding:110px 8vw}
+
 .hero{text-align:center}
-.hero h2{font-family:Orbitron;font-size:3rem;animation:glitch 4s infinite}
-.hero p{max-width:800px;margin:16px auto;opacity:.9}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;margin-top:50px}
-.card{background:rgba(20,30,45,.7);border-radius:18px;padding:28px;cursor:pointer;position:relative;overflow:hidden;transition:.3s}
-.card::before{content:"";position:absolute;inset:-2px;border-radius:20px;background:linear-gradient(120deg,transparent,var(--purple),transparent);opacity:0;transition:.3s}
+
+.hero h2{
+  font-family:Orbitron;
+  font-size:2.6rem;
+  animation:glitch 4s infinite;
+}
+
+.hero p{
+  max-width:800px;
+  margin:16px auto;
+  opacity:.9;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:24px;
+  margin-top:40px;
+}
+
+.card{
+  background:rgba(20,30,45,.7);
+  border-radius:18px;
+  padding:26px;
+  position:relative;
+  overflow:hidden;
+  transition:.3s;
+  cursor:pointer;
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius:20px;
+  background:linear-gradient(120deg,transparent,var(--purple),transparent);
+  opacity:0;
+  transition:.3s;
+}
+
 .card:hover::before{opacity:1}
-.card:hover{transform:translateY(-10px) scale(1.03);box-shadow:0 0 30px rgba(122,60,255,.6)}
+
+.card:hover{
+  transform:translateY(-8px) scale(1.02);
+  box-shadow:0 0 28px rgba(122,60,255,.6);
+}
+
 .card h3{color:var(--orange)}
-button{margin-top:28px;padding:16px 32px;border:none;border-radius:40px;font-family:Orbitron;background:linear-gradient(90deg,var(--green),var(--purple));color:#000;cursor:pointer;transition:.3s;position:relative;overflow:hidden}
-button:hover{transform:scale(1.06)}
-.ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.4);transform:scale(0);animation:ripple .6s linear}
-@keyframes ripple{to{transform:scale(4);opacity:0}}
-@keyframes glitch{0%{text-shadow:2px 2px var(--purple)}50%{text-shadow:-2px -2px var(--green)}100%{text-shadow:2px 2px var(--purple)}}
-footer{text-align:center;padding:50px 20px;background:#05070a;opacity:.9}
-#particles{position:fixed;inset:0;pointer-events:none}
+
+.badge{
+  display:inline-block;
+  margin-top:12px;
+  padding:4px 10px;
+  border-radius:20px;
+  font-size:.75rem;
+  background:linear-gradient(90deg,var(--green),var(--purple));
+  color:#000;
+  font-weight:600;
+}
+
+button{
+  margin-top:26px;
+  padding:14px 30px;
+  border:none;
+  border-radius:40px;
+  font-family:Orbitron;
+  background:linear-gradient(90deg,var(--green),var(--purple));
+  color:#000;
+  cursor:pointer;
+  transition:.3s;
+  position:relative;
+  overflow:hidden;
+}
+
+button:hover{transform:scale(1.05)}
+
+.ripple{
+  position:absolute;
+  border-radius:50%;
+  background:rgba(255,255,255,.4);
+  transform:scale(0);
+  animation:ripple .6s linear;
+}
+
+@keyframes ripple{
+  to{transform:scale(4);opacity:0}
+}
+
+@keyframes glitch{
+  0%{text-shadow:2px 2px var(--purple)}
+  50%{text-shadow:-2px -2px var(--green)}
+  100%{text-shadow:2px 2px var(--purple)}
+}
+
+footer{
+  text-align:center;
+  padding:50px 20px;
+  background:#05070a;
+  opacity:.9;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  header{flex-direction:column;gap:10px}
+  nav{display:flex;flex-wrap:wrap;justify-content:center}
+  .hero h2{font-size:2.1rem}
+  .grid{grid-template-columns:1fr}
+}
 </style>
 </head>
+
 <body>
+
 <canvas id="particles"></canvas>
+
 <header>
-<h1>GAMER STORE</h1>
-<nav>
-<a href="#home">Início</a>
-<a href="#produtos">Produtos</a>
-<a href="#socios">Sócios</a>
-<a href="https://discord.gg/5v3BTbyrxf" target="_blank">Discord</a>
-</nav>
+  <h1>GAMER STORE</h1>
+  <nav>
+    <a href="#home">Início</a>
+    <a href="#brainrots">Brainrots</a>
+    <a href="#compra">Comprar</a>
+    <a href="#socios">Sócios</a>
+    <a href="#faq">FAQ</a>
+    <a href="#regras">Regras</a>
+    <a href="#futuro">Futuro</a>
+    <a href="https://discord.gg/5v3BTbyrxf" target="_blank">Discord</a>
+  </nav>
 </header>
+
 <section class="hero" id="home">
-<h2>LOJINHA OFICIAL</h2>
-<p>A GAMER STORE [SAB] 🇧🇷 é a loja oficial dedicada ao universo Roblox, conectando criadores, jogadores e oportunidades reais de venda.</p>
-<p>Nosso objetivo é transformar ideias criativas em produtos digitais, fortalecer a comunidade e valorizar cada sócio com transparência e organização.</p>
-<button id="explorarBtn">Explorar</button>
+  <h2>LOJINHA OFICIAL</h2>
+  <p>
+    A GAMER STORE [SAB] 🇧🇷 é um hub oficial focado em <strong>BRAINROTS</strong>,
+    personagens do jogo Roblox <strong>Roube um Brainrot</strong>.
+  </p>
+  <button id="explorarBtn">Explorar Brainrots</button>
 </section>
-<section id="produtos">
-<h2>Produtos</h2>
-<p>A GAMER STORE atua como um hub oficial de conteúdos digitais Roblox, oferecendo divulgação estruturada e segura.</p>
-<p>Cada item passa por análise para garantir qualidade, originalidade e alinhamento com os valores da loja.</p>
-<div class="grid">
-<div class="card"><h3>Brainrots</h3><p>Ideias criativas, conceitos virais e formatos experimentais desenvolvidos por criadores parceiros.</p></div>
-<div class="card"><h3>Ofertas Especiais</h3><p>Campanhas limitadas, descontos exclusivos e promoções divulgadas oficialmente.</p></div>
-<div class="card"><h3>Lojas de Sócios</h3><p>Espaços personalizados para cada sócio vender seus próprios produtos dentro da loja.</p></div>
-</div>
+
+<section id="brainrots">
+  <h2>Brainrots</h2>
+  <p>
+    Aqui não vendemos produtos comuns. Trabalhamos exclusivamente com
+    <strong>BRAINROTS</strong> criados por parceiros e sócios.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>🧠 Brainrots Criativos</h3>
+      <p>Personagens únicos e colecionáveis do jogo.</p>
+    </div>
+    <div class="card">
+      <h3 Atuamos Em Outros Jogos</h3>
+      <p>Atuamos Em Blox fruits,E fuja Do tsunami Por um brainrot.</p>
+    </div>
+    <div class="card">
+      <h3>🏪 Brainrots de Sócios</h3>
+      <p>Brainrots administrados por sócios oficiais da loja.</p>
+    </div>
+  </div>
 </section>
+
+<section id="compra">
+  <h2>🛒 Como Funciona a Compra de Brainrots</h2>
+  <p>Seguindo um fluxo simples e seguro:</p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>1️⃣ Contato pelo Discord</h3>
+      <p>Entre no <strong>Discord oficial</strong> e abra contato no privado ou canal indicado.</p>
+      <span class="badge">Obrigatório</span>
+    </div>
+    <div class="card">
+      <h3>2️⃣ Confirmação do Brainrot</h3>
+      <p>A equipe confirma o personagem, valor e responsável pela entrega.</p>
+      <span class="badge">Confirmação</span>
+    </div>
+    <div class="card">
+      <h3>3️⃣ Pagamento via Pix</h3>
+      <p>Envie o Pix para a chave <strong>47 989105181</strong> e mande comprovante pelo Discord.</p>
+      <span class="badge">Pix</span>
+    </div>
+    <div class="card">
+      <h3>4️⃣ Entrega no Jogo</h3>
+      <p>A entrega acontece dentro do Roblox <strong>Roube um Brainrot</strong>.</p>
+      <span class="badge">In-game</span>
+    </div>
+  </div>
+
+  <p style="margin-top:20px;opacity:.85">
+    A GAMER STORE [SAB] 🇧🇷 atua como hub de organização e divulgação.  
+    Todas as negociações começam pelo Discord e a entrega ocorre somente no jogo.
+  </p>
+</section>
+
 <section id="socios">
-<h2>Programa de Sócios</h2>
-<p>O programa de sócios foi criado para apoiar criadores e incentivar crescimento conjunto com regras claras.</p>
-<p><strong>Benefícios:</strong></p>
-<p>• Divisão justa de lucros (50%)<br>• Descontos e ofertas exclusivas<br>• Participação em decisões e campanhas<br>• Prêmios e destaque oficial</p>
+  <h2>Programa de Sócios</h2>
+  <div class="grid">
+    <div class="card"><h3>🚀 Divulgação Prioritária</h3><p>Brainrots de sócios têm prioridade máxima.</p><span class="badge">Sócios</span></div>
+    <div class="card"><h3>💰 Comissão 50/50</h3><p>50% sócio / 50% loja.</p><span class="badge">Garantido</span></div>
+    <div class="card"><h3>🎮 Cargo no Discord</h3><p>Status VIP com destaque.</p><span class="badge">VIP</span></div>
+  </div>
 </section>
-<section>
-<h2>Sobre a Loja</h2>
-<p>A GAMER STORE [SAB] 🇧🇷 é um projeto oficial focado em organização, criatividade e oportunidades reais dentro do ecossistema Roblox.</p>
-<p>Nosso compromisso é crescer com transparência, segurança e valorização dos criadores.</p>
-</section>
+
 <section id="faq">
-<h2>Perguntas Frequentes</h2>
-<p><strong>A loja é oficial?</strong><br>Sim. A GAMER STORE [SAB] 🇧🇷 funciona como um projeto organizado e centralizado.</p>
-<p><strong>Quem pode virar sócio?</strong><br>Criadores, desenvolvedores e parceiros ligados ao universo Roblox.</p>
-<p><strong>Como os produtos são divulgados?</strong><br>Através do site oficial, Discord e campanhas internas.</p>
+  <h2>Perguntas Frequentes</h2>
+  <p><strong>O que são Brainrots?</strong><br>Personagens do jogo Roblox "Roube um Brainrot".</p>
+  <p><strong>Quem pode virar sócio?</strong><br>Criadores Roblox</p>
 </section>
+
 <section id="regras">
-<h2>Regras e Diretrizes</h2>
-<p>• Respeito entre membros<br>• Proibição de golpes ou conteúdos ilegais<br>• Transparência em vendas<br>• Decisões coletivas quando necessário</p>
+  <h2>Regras</h2>
+  <p>• Respeito • Nada ilegal • Transparência • Decisões coletivas</p>
 </section>
+
 <section id="futuro">
-<h2>Planos Futuros</h2>
-<p>Expansão da loja, novas categorias de produtos, eventos exclusivos e integração com experiências Roblox.</p>
-<p>Nosso objetivo é transformar a loja em uma referência dentro da comunidade.</p>
+  <h2>Planos Futuros</h2>
+  <p>Eventos, rankings e expansão da loja e Brainrots.</p>
 </section>
+
 <footer>
-<p>© 2026 GAMER STORE [SAB] 🇧🇷 — Site Oficial</p>
-<p>Loja focada no universo Roblox, criada para unir criatividade, organização e oportunidades reais de crescimento.</p>
-<p>Site desenvolvido pelo administrador Dan.</p>
-<p>Todos os direitos reservados.</p>
+  <p>© 2026 GAMER STORE [SAB] 🇧🇷</p>
+  <p>Site desenvolvido por Dan.</p>
 </footer>
+
 <audio id="clickSound" preload="auto" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3"></audio>
+
 <script>
+/* CLICK + RIPPLE */
 const sound=document.getElementById('clickSound');
 document.querySelectorAll('a,button,.card').forEach(el=>{
- el.addEventListener('click',e=>{
-  try{sound.currentTime=0;sound.play();}catch{}
-  const r=document.createElement('span');
-  r.className='ripple';
-  const rect=el.getBoundingClientRect();
-  r.style.left=(e.clientX-rect.left)+'px';
-  r.style.top=(e.clientY-rect.top)+'px';
-  el.appendChild(r);
-  setTimeout(()=>r.remove(),600);
- });
+  el.addEventListener('click',e=>{
+    try{sound.currentTime=0;sound.play()}catch{}
+    const r=document.createElement('span');
+    r.className='ripple';
+    const rect=el.getBoundingClientRect();
+    r.style.left=(e.clientX-rect.left)+'px';
+    r.style.top=(e.clientY-rect.top)+'px';
+    el.appendChild(r);
+    setTimeout(()=>r.remove(),600);
+  });
 });
-const explorarBtn=document.getElementById('explorarBtn');
-if(explorarBtn){
- explorarBtn.addEventListener('click',()=>{
-  document.getElementById('produtos').scrollIntoView({behavior:'smooth'});
- });
-}
+
+/* SCROLL BUTTON */
+document.getElementById('explorarBtn')
+.addEventListener('click',()=>{document.getElementById('brainrots').scrollIntoView({behavior:'smooth'});});
+
+/* PARTICLES */
 const canvas=document.getElementById('particles');
 const c=canvas.getContext('2d');
-function resize(){canvas.width=innerWidth;canvas.height=innerHeight}
-resize();addEventListener('resize',resize);
+
+function resize(){canvas.width=innerWidth;canvas.height=innerHeight;}
+resize(); addEventListener('resize',resize);
+
 let parts=Array.from({length:90},()=>({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:(Math.random()-.5)*.6,vy:(Math.random()-.5)*.6}));
+
 function loop(){
- c.clearRect(0,0,canvas.width,canvas.height);
- parts.forEach(p=>{
-  p.x+=p.vx;p.y+=p.vy;
-  if(p.x<0||p.x>canvas.width)p.vx*=-1;
-  if(p.y<0||p.y>canvas.height)p.vy*=-1;
-  c.fillStyle='rgba(122,60,255,.6)';
-  c.fillRect(p.x,p.y,2,2);
- });
- requestAnimationFrame(loop);
+  c.clearRect(0,0,canvas.width,canvas.height);
+  parts.forEach(p=>{
+    p.x+=p.vx; p.y+=p.vy;
+    if(p.x<0||p.x>canvas.width)p.vx*=-1;
+    if(p.y<0||p.y>canvas.height)p.vy*=-1;
+    c.fillStyle='rgba(122,60,255,.6)';
+    c.fillRect(p.x,p.y,2,2);
+  });
+  requestAnimationFrame(loop);
 }
 loop();
 </script>
+
 </body>
-</html>
+ </html>
